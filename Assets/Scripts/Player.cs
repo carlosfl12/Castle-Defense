@@ -6,8 +6,10 @@ public class Player : MonoBehaviour
 {
     public Vector2 input;
     public Rigidbody2D rb;
-    public float speed = 5f;
-    public float jumpForce = 15f;
+    public GameObject arrow;
+    public GameObject bow;
+    public bool bowlean = true;
+    public float chargeForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // input = new Vector2(Input.GetAxis("Horizontal"), 0);
+        Vector2 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        // Debug.Log(mousePos);
 
-        // if (Input.GetKeyDown(KeyCode.Space)) {
-        //     input.y += jumpForce;
-        // }
+        if (Input.GetButtonDown("Fire1")) {
+            bowlean = false;
+        }
+        if (Input.GetButton("Fire1")) {
+            chargeForce += 1000f * Time.deltaTime;
+            
+        }
 
-        // transform.position += new Vector3(input.x, input.y, 0) * speed * Time.deltaTime;
+        if (Input.GetButtonUp("Fire1") || chargeForce >= 500f  && bowlean == true) {
+            Instantiate(arrow, bow.transform.position, transform.rotation);
+            arrow.GetComponent<Rigidbody2D>().AddForce(transform.right * chargeForce * Time.deltaTime, ForceMode2D.Impulse);
+            chargeForce = 0;
+            bowlean = true;
+        }
     }
 }
