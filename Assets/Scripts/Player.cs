@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public Transform shotPoint;
     public float launchForce;
     public int arrowAmount = 30;
+    public Vector2 mousePos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +25,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 bowPosition = bow.transform.position;
         Vector2 direction = mousePos - bowPosition;
         bow.transform.right = -direction;
 
         if (Input.GetMouseButtonDown(0)) {
             Shoot();
+            SaveData(mousePos);
         }
 
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0, 0));
     }
 
-
+    public void SaveData(Vector2 mousePosition) {
+        Debug.Log("Mouse position: " + mousePosition);
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+            Debug.Log("Enemy position " + enemy.transform.position);
+        }
+    }
     void Shoot() {
         if (arrowAmount <= 0) {
             return;
@@ -53,6 +61,7 @@ public class Player : MonoBehaviour
             GameManager.sharedInstance.arrows -= 10;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Castle")) {
             transform.position = startPos;
