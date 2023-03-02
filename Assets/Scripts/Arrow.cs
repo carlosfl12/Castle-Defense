@@ -15,4 +15,15 @@ public class Arrow : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            Destroy(other.gameObject);
+            Debug.Log("Muerto");
+            Destroy(gameObject);
+            GameManager.sharedInstance.gold += 3;
+        }
+        
+
+    }
 }

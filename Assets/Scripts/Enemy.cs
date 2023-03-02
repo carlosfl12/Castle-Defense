@@ -32,11 +32,5 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Castle")) {
             other.gameObject.GetComponent<Castle>().RecieveDamage(3f);
         }
-
-        if (other.gameObject.CompareTag("Arrow")) {
-            Destroy(other.gameObject);
-            Debug.Log("Muerto");
-            Destroy(gameObject);
-        }
     }
 }
