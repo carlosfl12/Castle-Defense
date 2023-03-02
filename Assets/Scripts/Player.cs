@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
     }
 
     public void SaveData(Vector2 mousePosition) {
-        Debug.Log("Mouse position: " + mousePosition);
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
             Debug.Log("Enemy position " + enemy.transform.position);
         }

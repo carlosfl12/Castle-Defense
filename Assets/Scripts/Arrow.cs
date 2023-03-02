@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    Vector2 mousePosition;
     // Start is called before the first frame update
     void Start()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(mousePosition);
         Destroy(gameObject, 3f);
     }
 
@@ -22,6 +25,7 @@ public class Arrow : MonoBehaviour
             Debug.Log("Muerto");
             Destroy(gameObject);
             GameManager.sharedInstance.gold += 3;
+            GameManager.sharedInstance.SaveShot(mousePosition, other.gameObject.transform.position);
         }
         
 
