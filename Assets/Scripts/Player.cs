@@ -5,36 +5,63 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Vector2 input;
+    public Vector2 startPos;
     public Rigidbody2D rb;
-    public GameObject arrow;
+    public GameObject arrowPrefab;
     public GameObject bow;
-    public bool bowlean = true;
     public float chargeForce;
+    public Transform shotPoint;
+    public float launchForce;
+    public int arrowAmount = 30;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        // Debug.Log(mousePos);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 bowPosition = bow.transform.position;
+        Vector2 direction = mousePos - bowPosition;
+        bow.transform.right = -direction;
 
-        if (Input.GetButtonDown("Fire1")) {
-            bowlean = false;
-        }
-        if (Input.GetButton("Fire1")) {
-            chargeForce += 1000f * Time.deltaTime;
-            
+        if (Input.GetMouseButtonDown(0)) {
+            Shoot();
         }
 
-        if (Input.GetButtonUp("Fire1") || chargeForce >= 500f  && bowlean == true) {
-            Instantiate(arrow, bow.transform.position, transform.rotation);
-            arrow.GetComponent<Rigidbody2D>().AddForce(transform.right * chargeForce * Time.deltaTime, ForceMode2D.Impulse);
-            chargeForce = 0;
-            bowlean = true;
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0, 0));
+    }
+
+
+    void Shoot() {
+        if (arrowAmount <= 0) {
+            return;
+        }
+        GameObject arrow = Instantiate(arrowPrefab, shotPoint.position, shotPoint.rotation);
+        arrow.GetComponent<Rigidbody2D>().velocity = -bow.transform.right * launchForce;
+        arrowAmount--;
+    }
+
+    void Reload() {
+        if (GameManager.sharedInstance.arrows <= 0) {
+            Debug.Log("Can't Reload");
+        } else {
+            arrowAmount += 10;
+            GameManager.sharedInstance.arrows -= 10;
         }
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Castle")) {
+            transform.position = startPos;
+        }
+
+        if (other.gameObject.CompareTag("Quiver")) {
+            Reload();
+        }
+    }
+
+
 }
