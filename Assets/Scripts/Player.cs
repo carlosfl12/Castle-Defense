@@ -32,17 +32,17 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) {
             Shoot();
-            SaveData(mousePos);
+            // SaveData(mousePos);
         }
 
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0, 0));
     }
 
-    public void SaveData(Vector2 mousePosition) {
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
-            Debug.Log("Enemy position " + enemy.transform.position);
-        }
-    }
+    // public void SaveData(Vector2 mousePosition) {
+    //     foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+    //         Debug.Log("Enemy position " + enemy.transform.position);
+    //     }
+    // }
     void Shoot() {
         if (arrowAmount <= 0) {
             return;
