@@ -8,8 +8,6 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(mousePosition);
         Destroy(gameObject, 3f);
     }
 
@@ -20,6 +18,12 @@ public class Arrow : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (gameObject.name.Contains("2")) {
+            if (other.gameObject.CompareTag("Castle")) {
+                Destroy(gameObject);
+            }
+            return;
+        }
         if (other.gameObject.CompareTag("Enemy")) {
             Destroy(other.gameObject);
             Debug.Log("Muerto");

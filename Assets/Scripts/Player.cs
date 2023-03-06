@@ -33,6 +33,13 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             Shoot();
             // SaveData(mousePos);
+            Debug.Log(mousePos);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            GameManager.sharedInstance.arrows += 1000;
+            arrowAmount += 1000;
+            GameManager.sharedInstance.gold += 1000;
         }
 
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0, 0));
