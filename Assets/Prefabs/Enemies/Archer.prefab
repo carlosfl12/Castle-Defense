@@ -42,11 +42,11 @@ GameObject:
   - component: {fileID: 8309741761873796344}
   - component: {fileID: 8309741761873796347}
   - component: {fileID: 8309741761873796349}
-  - component: {fileID: 8201777471092676066}
   - component: {fileID: 1819242917599543897}
+  - component: {fileID: 361155671977751843}
   m_Layer: 0
   m_Name: Archer
-  m_TagString: Enemy
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.071847916, b: 1, a: 1}
+  m_Color: {r: 0.992854, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,24 +145,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8201777471092676066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8309741761873796348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d5710fad474bc4c9684415c317794d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttacking: 0
-  damage: 2
-  arrowPrefab: {fileID: 450096846012491059, guid: a628cdaba03ac3e4baa624b3ae25dfa1, type: 3}
-  waypoints: []
-  waypoint: {fileID: 0}
-  castle: {fileID: 0}
 --- !u!50 &1819242917599543897
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +153,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8309741761873796348}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -184,3 +166,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &361155671977751843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309741761873796348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e1b0a327f8baa46aa41d1b313ae3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 450096846012491059, guid: f0678f3a3dab5754e87f7317068c52b7, type: 3}
+  timer: 0
+  launchForce: 15

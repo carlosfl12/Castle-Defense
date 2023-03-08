@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject[] enemies;   
+    public float yPosition = -6.25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,6 @@ public class EnemyGenerator : MonoBehaviour
     void SpawnEnemy() {
         int random = Random.Range(0, enemies.Length);
 
-        Instantiate(enemies[random], transform.position, transform.rotation);
+        Instantiate(enemies[random], new Vector3(transform.position.x, yPosition , Random.Range(-3, 5)), transform.rotation);
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Vector2 input;
+    public Vector3 input;
+    public float speed = 5f;
     public Vector2 startPos;
     public Rigidbody2D rb;
     public GameObject arrowPrefab;
@@ -42,14 +43,9 @@ public class Player : MonoBehaviour
             GameManager.sharedInstance.gold += 1000;
         }
 
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * 5f * Time.deltaTime, 0, 0));
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
     }
-
-    // public void SaveData(Vector2 mousePosition) {
-    //     foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
-    //         Debug.Log("Enemy position " + enemy.transform.position);
-    //     }
-    // }
+    
     void Shoot() {
         if (arrowAmount <= 0) {
             return;

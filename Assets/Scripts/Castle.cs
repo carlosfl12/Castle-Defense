@@ -22,8 +22,8 @@ public class Castle : MonoBehaviour
     }
 
 
-    public void RecieveDamage(float amount) {
-        health -= amount * Time.deltaTime;
+    public void RecieveDamage(int amount) {
+        health -= amount;
         castleHp.text = "Health: " + health.ToString();
     }
 
