@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Vector2 mousePosition;
+    public int arrowDamage = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,18 +18,17 @@ public class Arrow : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter(Collider other) {
         if (gameObject.name.Contains("2")) {
             if (other.gameObject.CompareTag("Castle")) {
                 Destroy(gameObject);
             }
             return;
         }
+
         if (other.gameObject.CompareTag("Enemy")) {
-            Destroy(other.gameObject);
-            Debug.Log("Muerto");
+            other.gameObject.GetComponent<Enemy>().RecieveDamage(arrowDamage);
             Destroy(gameObject);
-            GameManager.sharedInstance.gold += 3;
             GameManager.sharedInstance.SaveShot(mousePosition, other.gameObject.transform.position);
         }
         

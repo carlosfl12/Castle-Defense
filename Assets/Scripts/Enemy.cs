@@ -5,16 +5,22 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int damage;
+    public int health;
+    public int maxHealth;
+    public int goldToGive;
     public float speed = 5;
     public GameObject arrowPrefab;
     public GameObject[] waypoints;
     public Transform waypoint;
     public Castle castle;
     private GameObject shotPosition;
+    public Healthbar healthbar;
     private float timeToShot;
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
+        healthbar.SetHealth(health, maxHealth);
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
         foreach (GameObject stopPoint in waypoints) {
             if (stopPoint.name.StartsWith(gameObject.name[0]) && transform.position.z == stopPoint.transform.position.z) {
@@ -32,7 +38,7 @@ public class Enemy : MonoBehaviour
         if (distance > 0.5f) {
             transform.position += transform.right * speed * Time.deltaTime;
         } else {
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
             if (timeToShot > 2) {
                 timeToShot = 0;
                 Attack();
@@ -53,5 +59,14 @@ public class Enemy : MonoBehaviour
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
 
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(1,1) * 10;
+    }
+
+    public void RecieveDamage(int amount) {
+        health -= amount;
+        healthbar.SetHealth(health, maxHealth);
+        if (health <= 0) {
+            GameManager.sharedInstance.gold += goldToGive;
+            Destroy(gameObject);
+        }
     }
 }

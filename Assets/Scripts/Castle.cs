@@ -6,8 +6,8 @@ using TMPro;
 public class Castle : MonoBehaviour
 {
     public TMP_Text castleHp;
-    public float health;
-    public float maxHealth = 999;
+    public int health;
+    public int maxHealth = 999;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +24,18 @@ public class Castle : MonoBehaviour
 
     public void RecieveDamage(int amount) {
         health -= amount;
+        castleHp.text = "Health: " + health.ToString();
+    }
+
+    public void RepairCastle(int amount) {
+        if (GameManager.sharedInstance.gold < 20) {
+            return;
+        }
+        health += amount;
+        GameManager.sharedInstance.gold -= 20;
+        if (health >= maxHealth) {
+            health = maxHealth;
+        }
         castleHp.text = "Health: " + health.ToString();
     }
 

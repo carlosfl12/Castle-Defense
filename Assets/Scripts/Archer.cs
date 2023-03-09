@@ -26,7 +26,9 @@ public class Archer : MonoBehaviour
         if (timer > 2 && arrowAmount > 0) {
             hasArrows = true;
             timer = 0;
-            Shoot();
+            if (transform.position == initialPosition) {
+                Shoot();
+            }
         }
         if (arrowAmount <= 0) {
             ReloadPosition();
@@ -41,7 +43,7 @@ public class Archer : MonoBehaviour
     public void Shoot() {
         GameObject arrow = Instantiate(arrowPrefab, new Vector3(0, 0, Random.Range(-3, 5)), transform.rotation);
 
-        arrow.GetComponent<Rigidbody2D>().velocity = -transform.right * launchForce;
+        arrow.GetComponent<Rigidbody>().velocity = -transform.right * launchForce;
         arrowAmount--;
     }
 
@@ -52,6 +54,9 @@ public class Archer : MonoBehaviour
     public void ReloadPosition() {
         transform.position = Vector3.MoveTowards(transform.position, quiver.transform.position, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, quiver.transform.position) < 1f) {
+            if (GameManager.sharedInstance.arrows <= 0) {
+                return;
+            }
             GameManager.sharedInstance.arrows -= 10;
             arrowAmount = 10;
         }

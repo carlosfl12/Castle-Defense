@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public Vector3 input;
     public float speed = 5f;
     public Vector2 startPos;
-    public Rigidbody2D rb;
+    public Rigidbody rb;
     public GameObject arrowPrefab;
     public GameObject bow;
     public float chargeForce;
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
     }
 
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             return;
         }
         GameObject arrow = Instantiate(arrowPrefab, shotPoint.position, shotPoint.rotation);
-        arrow.GetComponent<Rigidbody2D>().velocity = -bow.transform.right * launchForce;
+        arrow.GetComponent<Rigidbody>().velocity = -bow.transform.right * launchForce;
         arrowAmount--;
     }
 
@@ -64,11 +64,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject);
         if (other.gameObject.CompareTag("Castle")) {
             transform.position = startPos;
         }
-
+    
         if (other.gameObject.CompareTag("Quiver")) {
             Reload();
         }
