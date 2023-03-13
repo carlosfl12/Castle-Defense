@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public bool isActive = true;
+    public bool isActive = false;
     // Start is called before the first frame update
     void Start()
     {

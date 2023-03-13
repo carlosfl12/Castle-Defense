@@ -11,11 +11,12 @@ TagManager:
   - Arrow
   - Quiver
   - Waypoint
+  - Ally
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy Mask
   - Water
   - UI
   - 

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int favor;
     public TMP_Text goldText;
     public TMP_Text arrowsText;
+    public List<GameObject> enemiesList = new List<GameObject>();
 
     private void Awake() {
         if (sharedInstance == null) {
@@ -22,10 +23,6 @@ public class GameManager : MonoBehaviour
     public void SaveShot(Vector2 mousePosition, Vector2 enemyPosition) {
         shotData.mousePositions.Add(mousePosition);
         shotData.enemiesPosition.Add(enemyPosition);
-    }
-
-    private void Start() {
-        
     }
 
     private void Update() {
@@ -40,5 +37,12 @@ public class GameManager : MonoBehaviour
         } else {
             Debug.Log("Not enough gold");
         }
+    }
+
+    public void AddEnemy(GameObject enemy) {
+        enemiesList.Add(enemy);
+    }
+    public void RemoveEnemy(GameObject enemy) {
+        enemiesList.Remove(enemy);
     }
 }

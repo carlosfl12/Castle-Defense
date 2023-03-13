@@ -5,11 +5,13 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     Vector2 mousePosition;
+    Player player;
     public int arrowDamage = 3;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 3f);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,11 @@ public class Arrow : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Enemy")) {
-            other.gameObject.GetComponent<Enemy>().RecieveDamage(arrowDamage);
+            if ((arrowDamage * (int)player.launchForce) / 10 < 1) {
+                other.gameObject.GetComponent<Enemy>().RecieveDamage(1);
+            } else {
+                other.gameObject.GetComponent<Enemy>().RecieveDamage((arrowDamage * (int)player.launchForce) / 10);
+            }
             Destroy(gameObject);
             GameManager.sharedInstance.SaveShot(mousePosition, other.gameObject.transform.position);
         }

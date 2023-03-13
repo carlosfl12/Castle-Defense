@@ -406,6 +406,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5797678, y: 0.19296907}
   m_EdgeRadius: 0
+--- !u!114 &242650266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3271401470890677352, guid: e61397e7f1ca3304bb8c8d6e35370298, type: 3}
+  m_PrefabInstance: {fileID: 3271401471303348930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242650259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5461bfb993a95b4ca08a9cde257a4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &273063612
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +766,7 @@ GameObject:
   - component: {fileID: 311544472}
   m_Layer: 0
   m_Name: Pelayo 1_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,9 +791,11 @@ MonoBehaviour:
   bow: {fileID: 966617452}
   chargeForce: 0
   shotPoint: {fileID: 273281456}
-  launchForce: 15
+  launchForce: 0
   arrowAmount: 30
   mousePos: {x: 0, y: 0}
+  screenPosition: {x: 0, y: 0, z: 0}
+  worldPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &311544470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1577,7 +1590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy Arrows (10)    15
+  m_text: Comprar Flechas (10)    15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2255,7 +2268,7 @@ GameObject:
   - component: {fileID: 1011213153}
   m_Layer: 0
   m_Name: EnemyGenerator
-  m_TagString: Untagged
+  m_TagString: EnemyGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2289,9 +2302,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 4665400707140640894, guid: 4eb1b1a984bf25f41a6efb60926ad805, type: 3}
-  - {fileID: 6642705652702266498, guid: 87d09eee88c8c0b4a8b527bcc22a0bae, type: 3}
   - {fileID: 8309741761873796348, guid: 398aa72a6d2537f4d82802cf6ef02c12, type: 3}
+  - {fileID: 6642705652702266498, guid: 87d09eee88c8c0b4a8b527bcc22a0bae, type: 3}
   yPosition: -6.25
+  hasRam: 0
 --- !u!1 &1050174125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2403,7 @@ GameObject:
   - component: {fileID: 1103350966}
   - component: {fileID: 1103350965}
   m_Layer: 5
-  m_Name: Buy Villagers
+  m_Name: Repair Castle
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2461,14 +2475,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1958685613}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BuyArrows
-        m_Mode: 1
+      - m_Target: {fileID: 242650266}
+        m_TargetAssemblyTypeName: Castle, Assembly-CSharp
+        m_MethodName: RepairCastle
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2523,6 +2537,10 @@ PrefabInstance:
       propertyPath: quiver
       value: 
       objectReference: {fileID: 2059421571}
+    - target: {fileID: 361155671977751843, guid: ee96c10e0b2c76b4ebb9e3272c742c89, type: 3}
+      propertyPath: arrowAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8309741761873796344, guid: ee96c10e0b2c76b4ebb9e3272c742c89, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3161,7 +3179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy Villagers (1)    20
+  m_text: Reparar Castillo  (20)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3346,7 +3364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b5bd137958d904c88ca533e8318975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
 --- !u!114 &1522605305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4286,6 +4304,7 @@ MonoBehaviour:
   favor: 0
   goldText: {fileID: 1558540144}
   arrowsText: {fileID: 1997095863}
+  enemiesList: []
 --- !u!4 &1958685614
 Transform:
   m_ObjectHideFlags: 0

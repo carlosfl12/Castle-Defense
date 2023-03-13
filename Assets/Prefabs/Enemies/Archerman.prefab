@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8511605107640969053}
   - component: {fileID: 2164849275608129267}
   - component: {fileID: 5524975437497044196}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449538680606972617}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703820464542362533}
   - component: {fileID: 5597599824339398992}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8192074426392195227}
   - component: {fileID: 5346683554107233888}
   - component: {fileID: 8790808910807626481}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 1893864813638523793}
   - component: {fileID: 5537209460898604288}
   - component: {fileID: 809472822604399707}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8482529511290940167}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 1476940867868461938}
   - component: {fileID: -2008423835850746117}
   - component: {fileID: -3492147848268887523}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Archerman
   m_TagString: Enemy
   m_Icon: {fileID: 0}

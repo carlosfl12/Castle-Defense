@@ -16,9 +16,11 @@ public class Enemy : MonoBehaviour
     private GameObject shotPosition;
     public Healthbar healthbar;
     private float timeToShot;
+    private EnemyGenerator enemyGenerator;
     // Start is called before the first frame update
     void Start()
     {
+        enemyGenerator = GameObject.FindGameObjectWithTag("EnemyGenerator").GetComponent<EnemyGenerator>();
         health = maxHealth;
         healthbar.SetHealth(health, maxHealth);
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
@@ -66,6 +68,10 @@ public class Enemy : MonoBehaviour
         healthbar.SetHealth(health, maxHealth);
         if (health <= 0) {
             GameManager.sharedInstance.gold += goldToGive;
+            GameManager.sharedInstance.RemoveEnemy(gameObject);
+            if (gameObject.name.StartsWith("B")) {
+                enemyGenerator.hasRam = false;
+            }
             Destroy(gameObject);
         }
     }

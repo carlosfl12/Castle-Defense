@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4539931916664215491}
   - component: {fileID: 399449452578840631}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5747892418710403695}
   - component: {fileID: 8130921014757921577}
   - component: {fileID: 3937751580638811914}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6123438569702784607}
   - component: {fileID: 6332194529275830904}
   - component: {fileID: 8955331958503562921}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 4922760233833194678}
   - component: {fileID: 2069595563913779753}
   - component: {fileID: -1276306111799956528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spearman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 7827601276469955224}
   - component: {fileID: 4377317234817298969}
   - component: {fileID: 2842252488284212712}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2370881966844295605}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

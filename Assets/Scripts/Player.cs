@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float launchForce;
     public int arrowAmount = 30;
     public Vector2 mousePos;
+    public Vector3 screenPosition, worldPosition;
     
     // Start is called before the first frame update
     void Start()
@@ -26,15 +27,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 bowPosition = bow.transform.position;
-        Vector2 direction = mousePos - bowPosition;
-        bow.transform.right = -direction;
+        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+        
 
-        if (Input.GetMouseButtonDown(0)) {
-            Shoot();
-            // SaveData(mousePos);
-            Debug.Log(mousePos);
+        if (Input.GetMouseButton(0)) {
+            launchForce += Time.deltaTime * 30f;
+        }
+        if (launchForce >= 0 && Input.GetMouseButtonUp(0)) {
+            Shoot(launchForce);
         }
 
         if (Input.GetKeyDown(KeyCode.R)) {
@@ -46,13 +46,15 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
     }
     
-    void Shoot() {
+    void Shoot(float force) {
         if (arrowAmount <= 0) {
             return;
         }
         GameObject arrow = Instantiate(arrowPrefab, shotPoint.position, shotPoint.rotation);
-        arrow.GetComponent<Rigidbody>().velocity = -bow.transform.right * launchForce;
+        arrow.GetComponent<Rigidbody>().velocity = -bow.transform.right * force;
         arrowAmount--;
+        launchForce = 0;
+
     }
 
     void Reload() {

@@ -12,7 +12,7 @@ public class Castle : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        castleHp.text = "Health: " + maxHealth.ToString();
+        castleHp.text = "Vida: " + maxHealth.ToString();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class Castle : MonoBehaviour
 
     public void RecieveDamage(int amount) {
         health -= amount;
-        castleHp.text = "Health: " + health.ToString();
+        castleHp.text = "Vida: " + health.ToString();
     }
 
     public void RepairCastle(int amount) {
@@ -36,7 +36,7 @@ public class Castle : MonoBehaviour
         if (health >= maxHealth) {
             health = maxHealth;
         }
-        castleHp.text = "Health: " + health.ToString();
+        castleHp.text = "Vida: " + health.ToString();
     }
 
 
