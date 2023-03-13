@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
             GameManager.sharedInstance.gold += 1000;
         }
 
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis("Vertical") * speed * Time.deltaTime));
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0));
     }
     
     void Shoot(float force) {
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             return;
         }
         GameObject arrow = Instantiate(arrowPrefab, shotPoint.position, shotPoint.rotation);
-        arrow.GetComponent<Rigidbody>().velocity = -bow.transform.right * force;
+        arrow.GetComponent<Rigidbody2D>().velocity = -bow.transform.right * force;
         arrowAmount--;
         launchForce = 0;
 
@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(other.gameObject);
         if (other.gameObject.CompareTag("Castle")) {
             transform.position = startPos;
         }

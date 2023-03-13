@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public GameObject[] enemies;   
-    public float yPosition = -6.25f;
+    public GameObject[] enemies;
+    public GameObject[] waypoints;
     public bool hasRam = false;
+    public bool canMove = false;
     // Start is called before the first frame update
     void Start()
     {
+        waypoints = GameObject.FindGameObjectsWithTag("EG Waypoints");
         if (hasRam) {
             InvokeRepeating("SpawnEnemy", 1f, 3f * 3);   
         } else {
             InvokeRepeating("SpawnEnemy", 1f, 3f);   
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChangePosition();
     }
 
     void SpawnEnemy() {
@@ -35,8 +38,15 @@ public class EnemyGenerator : MonoBehaviour
                 hasRam = false;
             }
         }
-        GameObject enemy = Instantiate(enemies[random], new Vector3(transform.position.x, yPosition , Random.Range(-3, 5)), transform.rotation);
-
+        GameObject enemy = Instantiate(enemies[random], new Vector2(transform.position.x, transform.position.y), transform.rotation);
+        enemy.GetComponent<SpriteRenderer>().sortingOrder = (int)(transform.position.y - 1) * -1;
         GameManager.sharedInstance.AddEnemy(enemy);
+        canMove = false;
+    }
+
+    void ChangePosition() {
+        int randomPosition = Random.Range(0, waypoints.Length);
+
+        transform.position = waypoints[randomPosition].transform.position;
     }
 }

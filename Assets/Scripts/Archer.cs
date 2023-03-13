@@ -10,7 +10,7 @@ public class Archer : MonoBehaviour
     public float timer;
     public float launchForce = 15f;
     public int arrowAmount = 10;
-    public Vector3 initialPosition;
+    public Vector2 initialPosition;
     public bool hasArrows;
     // Start is called before the first frame update
     void Start()
@@ -25,9 +25,10 @@ public class Archer : MonoBehaviour
 
         if (timer > 2 && arrowAmount > 0) {
             hasArrows = true;
-            timer = 0;
-            if (transform.position == initialPosition) {
-                Shoot();
+            launchForce += Time.deltaTime * 30f;
+            if ((Vector2)transform.position == initialPosition && launchForce > 15) {
+                Shoot(launchForce);
+                timer = 0;
             }
         }
         if (arrowAmount <= 0) {
@@ -40,11 +41,12 @@ public class Archer : MonoBehaviour
         }
     }
 
-    public void Shoot() {
+    public void Shoot(float force) {
         GameObject arrow = Instantiate(arrowPrefab, new Vector3(0, 0, Random.Range(-3, 5)), transform.rotation);
 
-        arrow.GetComponent<Rigidbody>().velocity = -transform.right * launchForce;
+        arrow.GetComponent<Rigidbody2D>().velocity = -transform.right * force;
         arrowAmount--;
+        launchForce = 0;
     }
 
     public void InitialPosition() {

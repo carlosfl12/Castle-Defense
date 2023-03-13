@@ -257,8 +257,7 @@ GameObject:
   - component: {fileID: 4032532687708632763}
   - component: {fileID: 2090923407409859764}
   - component: {fileID: -3558630457391835489}
-  - component: {fileID: -4655287547864163007}
-  - component: {fileID: -9002014975013811216}
+  - component: {fileID: 3708171791763342582}
   m_Layer: 3
   m_Name: Battering ram
   m_TagString: Enemy
@@ -356,35 +355,33 @@ MonoBehaviour:
   waypoint: {fileID: 0}
   castle: {fileID: 0}
   healthbar: {fileID: 2164511137678220900}
---- !u!54 &-4655287547864163007
-Rigidbody:
+  sprite: {fileID: 0}
+--- !u!61 &3708171791763342582
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6642705652702266498}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &-9002014975013811216
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642705652702266498}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.029244423, y: -0.12672508}
+  m_SpriteTilingProperty:
+    border: {x: 0.40625, y: 0.6875, z: 0.34375, w: 0.9375}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 13.4375, y: 7.125}
+    newSize: {x: 13.4375, y: 7.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.4375, y: 7.125, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 12.87211, y: 5.7407713}
+  m_EdgeRadius: 0
 --- !u!1 &6841443997005554723
 GameObject:
   m_ObjectHideFlags: 0

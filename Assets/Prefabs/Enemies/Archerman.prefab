@@ -440,8 +440,7 @@ GameObject:
   - component: {fileID: 8309741761873796344}
   - component: {fileID: 8309741761873796347}
   - component: {fileID: 1476940867868461938}
-  - component: {fileID: -2008423835850746117}
-  - component: {fileID: -3492147848268887523}
+  - component: {fileID: 5514820095003188690}
   m_Layer: 3
   m_Name: Archerman
   m_TagString: Enemy
@@ -507,8 +506,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.071847916, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 48508b0ece489f64f83adfc684da7a2a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -534,38 +533,36 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   goldToGive: 2
-  speed: 7
+  speed: 3
   arrowPrefab: {fileID: 450096846012491059, guid: a628cdaba03ac3e4baa624b3ae25dfa1, type: 3}
   waypoints: []
   waypoint: {fileID: 0}
   castle: {fileID: 0}
   healthbar: {fileID: 8790808910807626481}
---- !u!65 &-2008423835850746117
-BoxCollider:
+  sprite: {fileID: 0}
+--- !u!61 &5514820095003188690
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8309741761873796348}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.90625, y: 4.90625}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-3492147848268887523
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8309741761873796348}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

@@ -17,15 +17,17 @@ public class Enemy : MonoBehaviour
     public Healthbar healthbar;
     private float timeToShot;
     private EnemyGenerator enemyGenerator;
+    public SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         enemyGenerator = GameObject.FindGameObjectWithTag("EnemyGenerator").GetComponent<EnemyGenerator>();
         health = maxHealth;
         healthbar.SetHealth(health, maxHealth);
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
         foreach (GameObject stopPoint in waypoints) {
-            if (stopPoint.name.StartsWith(gameObject.name[0]) && transform.position.z == stopPoint.transform.position.z) {
+            if (stopPoint.name.StartsWith(gameObject.name[0]) && transform.position.y == stopPoint.transform.position.y) {
                 waypoint = stopPoint.transform;
             }
         }
@@ -37,10 +39,11 @@ public class Enemy : MonoBehaviour
     {
         timeToShot += Time.deltaTime;
         float distance = Vector3.Distance(transform.position, waypoint.position);
+        
         if (distance > 0.5f) {
             transform.position += transform.right * speed * Time.deltaTime;
         } else {
-            gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             if (timeToShot > 2) {
                 timeToShot = 0;
                 Attack();

@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (gameObject.name.Contains("2")) {
             if (other.gameObject.CompareTag("Castle")) {
                 Destroy(gameObject);
