@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public float launchForce;
     public int arrowAmount = 30;
     public Vector2 mousePos;
-    public Vector3 screenPosition, worldPosition;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+        Vector2 bowPosition = bow.transform.position;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousePos - bowPosition;
+        bow.transform.right = -direction;
         
 
         if (Input.GetMouseButton(0)) {

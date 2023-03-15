@@ -42,7 +42,7 @@ public class Archer : MonoBehaviour
     }
 
     public void Shoot(float force) {
-        GameObject arrow = Instantiate(arrowPrefab, new Vector3(0, 0, Random.Range(-3, 5)), transform.rotation);
+        GameObject arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, Random.Range(-8.75f, 9.25f), transform.position.z), transform.rotation);
 
         arrow.GetComponent<Rigidbody2D>().velocity = -transform.right * force;
         arrowAmount--;
