@@ -18,6 +18,15 @@ public class Enemy : MonoBehaviour
     private float timeToShot;
     private EnemyGenerator enemyGenerator;
     public SpriteRenderer sprite;
+    public ParticleSystem particle;
+
+    private void Awake() {
+        if (particle == null) {
+            return;
+        } else {
+            particle.Stop();
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +71,15 @@ public class Enemy : MonoBehaviour
     void Shoot() {
         // transform.LookAt(shotPosition.transform.position);
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-
-        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(1,1) * 10;
+        Vector2 shootPosition = new Vector2(0,0);
+        shootPosition = (Vector2)GameManager.sharedInstance.archers[Random.Range(0, GameManager.sharedInstance.archers.Count)].transform.position;
+        arrow.GetComponent<Rigidbody2D>().velocity = shootPosition * 10;
     }
 
     public void RecieveDamage(int amount) {
+        if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {
+            particle.Play();
+        }
         health -= amount;
         healthbar.SetHealth(health, maxHealth);
         if (health <= 0) {

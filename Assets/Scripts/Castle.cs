@@ -5,14 +5,14 @@ using TMPro;
 
 public class Castle : MonoBehaviour
 {
-    public TMP_Text castleHp;
+    public Healthbar healthbar;
     public int health;
     public int maxHealth = 999;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        castleHp.text = "Vida: " + maxHealth.ToString();
+        healthbar.SetHealth(health, maxHealth);
     }
 
     // Update is called once per frame
@@ -24,19 +24,24 @@ public class Castle : MonoBehaviour
 
     public void RecieveDamage(int amount) {
         health -= amount;
-        castleHp.text = "Vida: " + health.ToString();
+        healthbar.SetHealth(health, maxHealth);
     }
 
     public void RepairCastle(int amount) {
         if (GameManager.sharedInstance.gold < 20) {
             return;
         }
+        
         health += amount;
+        
         GameManager.sharedInstance.gold -= 20;
+        
         if (health >= maxHealth) {
             health = maxHealth;
         }
-        castleHp.text = "Vida: " + health.ToString();
+
+        healthbar.SetHealth(health, maxHealth);
+
     }
 
 
