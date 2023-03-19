@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4539931916664215491}
   - component: {fileID: 399449452578840631}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5747892418710403695}
   - component: {fileID: 8130921014757921577}
   - component: {fileID: 3937751580638811914}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6123438569702784607}
   - component: {fileID: 6332194529275830904}
   - component: {fileID: 8955331958503562921}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,8 @@ GameObject:
   - component: {fileID: 4031513941787585665}
   - component: {fileID: 4922760233833194678}
   - component: {fileID: -3367695990667907279}
-  m_Layer: 3
+  - component: {fileID: -4716177924001069315}
+  m_Layer: 0
   m_Name: Spearman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  launchForce: 0
   health: 10
   maxHealth: 10
   goldToGive: 5
@@ -352,6 +354,7 @@ MonoBehaviour:
   castle: {fileID: 0}
   healthbar: {fileID: 2842252488284212712}
   sprite: {fileID: 0}
+  particle: {fileID: 0}
 --- !u!61 &-3367695990667907279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -362,7 +365,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.8038957, y: -0.12141609}
@@ -378,6 +381,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6915221, y: 4.6743135}
   m_EdgeRadius: 0
+--- !u!50 &-4716177924001069315
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665400707140640894}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4691510503068432460
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +415,7 @@ GameObject:
   - component: {fileID: 7827601276469955224}
   - component: {fileID: 4377317234817298969}
   - component: {fileID: 2842252488284212712}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2370881966844295605}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int damage;
+    public int damage, launchForce;
     public int health;
     public int maxHealth;
     public int goldToGive;
     public float speed = 5;
+    public bool oiled;
     public GameObject arrowPrefab;
     public GameObject[] waypoints;
     public Transform waypoint;
@@ -71,9 +72,11 @@ public class Enemy : MonoBehaviour
     void Shoot() {
         // transform.LookAt(shotPosition.transform.position);
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        Vector2 shootPosition = new Vector2(0,0);
-        shootPosition = (Vector2)GameManager.sharedInstance.archers[Random.Range(0, GameManager.sharedInstance.archers.Count)].transform.position;
-        arrow.GetComponent<Rigidbody2D>().velocity = shootPosition * 10;
+        Vector2 shootTarget = new Vector2(0,0);
+        shootTarget = (Vector2)GameManager.sharedInstance.archers[Random.Range(0, GameManager.sharedInstance.archers.Count)].transform.position;
+        Vector2 direction = (shootTarget - (Vector2)transform.position).normalized;
+        // arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(shootTarget.x, shootTarget.y).normalized * launchForce;
+        arrow.GetComponent<Rigidbody2D>().AddForce(direction * launchForce);
     }
 
     public void RecieveDamage(int amount) {

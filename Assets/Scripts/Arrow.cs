@@ -6,7 +6,13 @@ public class Arrow : MonoBehaviour
 {
     Vector2 mousePosition;
     Player player;
+    public enum ArrowType {
+        Normal,
+        Fire
+    }
+    public static ArrowType arrowType;
     public int arrowDamage = 3;
+    public bool fireArrow = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +23,14 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (arrowType) {
+            case ArrowType.Fire:
+                fireArrow = true;
+                break;
+            case ArrowType.Normal:
+                fireArrow = false;
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -29,10 +42,14 @@ public class Arrow : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Enemy")) {
-            if ((arrowDamage * (int)player.launchForce) / 10 < 1) {
-                other.gameObject.GetComponent<Enemy>().RecieveDamage(1);
+            if (other.GetComponent<Enemy>().oiled && fireArrow) {
+                other.GetComponent<Enemy>().RecieveDamage(45);
             } else {
-                other.gameObject.GetComponent<Enemy>().RecieveDamage((arrowDamage * (int)player.launchForce) / 10);
+                if ((arrowDamage * (int)player.launchForce) / 10 < 1) {
+                    other.gameObject.GetComponent<Enemy>().RecieveDamage(1);
+                } else {
+                    other.gameObject.GetComponent<Enemy>().RecieveDamage((arrowDamage * (int)player.launchForce) / 10);
+                }
             }
             Destroy(gameObject);
             GameManager.sharedInstance.SaveShot(mousePosition, other.gameObject.transform.position);

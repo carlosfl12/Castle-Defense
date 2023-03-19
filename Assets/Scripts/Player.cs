@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public int arrowAmount = 30;
     public Vector2 mousePos;
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ChangeArrows();
         Vector2 bowPosition = bow.transform.position;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePos - bowPosition;
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             launchForce += Time.deltaTime * 30f;
         }
-        if (launchForce >= 0 && Input.GetMouseButtonUp(0)) {
+        if (launchForce >= 0 && Input.GetMouseButtonUp(0) && !GameManager.sharedInstance.isCanvasActive) {
             Shoot(launchForce);
         }
 
@@ -44,7 +46,6 @@ public class Player : MonoBehaviour
             arrowAmount += 1000;
             GameManager.sharedInstance.gold += 1000;
         }
-
         transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0));
     }
     
@@ -65,6 +66,15 @@ public class Player : MonoBehaviour
         } else {
             arrowAmount += 10;
             GameManager.sharedInstance.arrows -= 10;
+        }
+    }
+
+    void ChangeArrows() {
+        if (Input.mouseScrollDelta.y > 0) {
+            Arrow.arrowType = Arrow.ArrowType.Fire;
+        }
+        if (Input.mouseScrollDelta.y < 0) {
+            Arrow.arrowType = Arrow.ArrowType.Normal;
         }
     }
 

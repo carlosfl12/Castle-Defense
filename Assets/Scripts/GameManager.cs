@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text arrowsText;
     public List<GameObject> enemiesList = new List<GameObject>();
     public List<GameObject> archers = new List<GameObject>();
+    public bool isCanvasActive;
 
     private void Awake() {
         if (sharedInstance == null) {

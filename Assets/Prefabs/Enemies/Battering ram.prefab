@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6886265281324355264}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 5390548044517519291}
   - component: {fileID: 1105234962352942085}
   - component: {fileID: 2164511137678220900}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4225889386918317306}
   - component: {fileID: 6119961311203093787}
   - component: {fileID: 2904865047547008370}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4980,7 +4980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4186425011971198599}
   - component: {fileID: 4553597015256970730}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5072,7 +5072,8 @@ GameObject:
   - component: {fileID: 2090923407409859764}
   - component: {fileID: -3558630457391835489}
   - component: {fileID: 3708171791763342582}
-  m_Layer: 3
+  - component: {fileID: 453346417260856616}
+  m_Layer: 0
   m_Name: Battering ram
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5161,6 +5162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  launchForce: 0
   health: 50
   maxHealth: 50
   goldToGive: 25
@@ -5182,7 +5184,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.029244423, y: -0.12672508}
@@ -5198,6 +5200,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.87211, y: 5.7407713}
   m_EdgeRadius: 0
+--- !u!50 &453346417260856616
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6642705652702266498}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6841443997005554723
 GameObject:
   m_ObjectHideFlags: 0
@@ -5209,7 +5232,7 @@ GameObject:
   - component: {fileID: 43052788124581141}
   - component: {fileID: 966926902727640279}
   - component: {fileID: 7432080887381552660}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5285,7 +5308,7 @@ GameObject:
   - component: {fileID: 3478424249559691115}
   - component: {fileID: 5136002774860616036}
   - component: {fileID: 9143701078335810671}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,6 +16,7 @@ public class ButtonHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab)) {
             isActive = !isActive;
             gameObject.GetComponent<Canvas>().enabled = isActive;
+            GameManager.sharedInstance.isCanvasActive = isActive;
         }
     }
 }

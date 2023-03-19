@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8511605107640969053}
   - component: {fileID: 2164849275608129267}
   - component: {fileID: 5524975437497044196}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449538680606972617}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703820464542362533}
   - component: {fileID: 5597599824339398992}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 8192074426392195227}
   - component: {fileID: 5346683554107233888}
   - component: {fileID: 8790808910807626481}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 1893864813638523793}
   - component: {fileID: 5537209460898604288}
   - component: {fileID: 809472822604399707}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8482529511290940167}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ShotPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,8 @@ GameObject:
   - component: {fileID: 8309741761873796347}
   - component: {fileID: 1476940867868461938}
   - component: {fileID: 5514820095003188690}
-  m_Layer: 3
+  - component: {fileID: 5557712766295127527}
+  m_Layer: 0
   m_Name: Archerman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  launchForce: 1500
   health: 10
   maxHealth: 10
   goldToGive: 2
@@ -540,6 +542,7 @@ MonoBehaviour:
   castle: {fileID: 0}
   healthbar: {fileID: 8790808910807626481}
   sprite: {fileID: 0}
+  particle: {fileID: 0}
 --- !u!61 &5514820095003188690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -550,7 +553,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.014657021, y: -0.018667221}
@@ -566,3 +569,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6429005, y: 4.4888344}
   m_EdgeRadius: 0
+--- !u!50 &5557712766295127527
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309741761873796348}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

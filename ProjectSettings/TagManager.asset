@@ -12,6 +12,9 @@ TagManager:
   - Quiver
   - Waypoint
   - Ally
+  - EG Waypoints
+  - EnemyGenerator
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Enemy Mask
   - Water
   - UI
-  - 
+  - Fluids
   - 
   - 
   - 
