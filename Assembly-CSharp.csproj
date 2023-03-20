@@ -46,10 +46,12 @@
      <Compile Include="Assets\Scripts\EnemyGenerator.cs" />
      <Compile Include="Assets\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\ShotData.cs" />
+     <Compile Include="Assets\Scripts\Oil.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Healthbar.cs" />
-     <Compile Include="Assets\Scripts\Oil.cs" />
+     <Compile Include="Assets\Scripts\GoldPot.cs" />
+     <Compile Include="Assets\Scripts\CanvasManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

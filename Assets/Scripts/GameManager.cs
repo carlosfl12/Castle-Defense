@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour
         if (gold >= 15) {
             gold -= 15;
             arrows += 10;
-        } else {
-            Debug.Log("Not enough gold");
         }
     }
 

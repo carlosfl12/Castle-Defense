@@ -11,6 +11,7 @@ public class Oil : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && other.gameObject.name.StartsWith("B")) {
             other.GetComponent<Enemy>().oiled = true;
         } else {
+            GameManager.sharedInstance.RemoveEnemy(other.gameObject);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
