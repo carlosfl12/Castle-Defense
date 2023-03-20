@@ -39,7 +39,6 @@ public class TrapsManager : MonoBehaviour
 
     public void PlaceTrap(GameObject trap) {
         if (trap.GetComponent<Trap>().goldCost <= GameManager.sharedInstance.gold) {
-            Debug.Log("TIENE DINERO");
             GameObject trapGO = Instantiate(trap, mousePos, transform.rotation);
             currentTrap = trapGO;
             GameManager.sharedInstance.gold -= trap.GetComponent<Trap>().goldCost;

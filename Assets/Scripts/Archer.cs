@@ -12,6 +12,8 @@ public class Archer : MonoBehaviour
     public int arrowAmount = 10;
     public Vector2 initialPosition;
     public bool hasArrows;
+    public bool hasEnemies;
+    public GameObject currentTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,22 @@ public class Archer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Arreglar los disparos
+        hasEnemies = GameManager.sharedInstance.enemiesList.Count > 0;
+        if (hasEnemies) {
+            GetTarget();
+        } else {
+            return;
+        }
+
         timer += Time.deltaTime;
 
         if (timer > 2 && arrowAmount > 0) {
             hasArrows = true;
-            launchForce += Time.deltaTime * 30f;
-            if ((Vector2)transform.position == initialPosition && launchForce > 15) {
-                Shoot(launchForce);
+            launchForce += Time.deltaTime * 70f;
+            if ((Vector2)transform.position == initialPosition && launchForce > 35 && hasEnemies) {
+                Shoot(currentTarget);
                 timer = 0;
             }
         }
@@ -41,10 +52,22 @@ public class Archer : MonoBehaviour
         }
     }
 
-    public void Shoot(float force) {
-        GameObject arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, Random.Range(-8.75f, 9.25f), transform.position.z), transform.rotation);
+    public GameObject GetTarget() {
+        foreach (GameObject target in GameManager.sharedInstance.enemiesList) {
+            if (currentTarget == null) {
+                currentTarget = GameManager.sharedInstance.enemiesList[Random.Range(0, GameManager.sharedInstance.enemiesList.Count - 1)];
+            }
+        }
+        return currentTarget;
+    }
 
-        arrow.GetComponent<Rigidbody2D>().velocity = -transform.right * force;
+    public void Shoot(GameObject target) {
+        GameObject arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, Random.Range(-8.75f, 9.25f), transform.position.z), transform.rotation);
+        Vector2 shootTarget = (Vector2)target.transform.position;
+        Vector2 direction = shootTarget - (Vector2)transform.position;
+
+        arrow.GetComponent<Rigidbody2D>().AddForce(direction * launchForce);
+
         arrowAmount--;
         launchForce = 0;
     }

@@ -40,7 +40,7 @@ public class Arrow : MonoBehaviour
             }
             return;
         }
-
+        // Arreglar el daño
         if (other.gameObject.CompareTag("Enemy")) {
             if (other.GetComponent<Enemy>().oiled && fireArrow) {
                 other.GetComponent<Enemy>().RecieveDamage(45);

@@ -6,24 +6,27 @@ public class EnemyGenerator : MonoBehaviour
 {
     public GameObject[] enemies;
     public GameObject[] waypoints;
-    public float spawnRate = 10f;
+    public float spawnRate = 7f;
     public bool hasRam = false;
     public bool canMove = false;
+    public bool canSpawn = false;
+    public float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
         waypoints = GameObject.FindGameObjectsWithTag("EG Waypoints");
-        if (hasRam) {
-            InvokeRepeating("SpawnEnemy", 1f, spawnRate * 3);   
-        } else {
-            InvokeRepeating("SpawnEnemy", 1f, spawnRate);   
-        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
+        if (timer >= spawnRate) {
+            timer = 0;
+            SpawnEnemy();
+        }
         ChangePosition();
     }
 
