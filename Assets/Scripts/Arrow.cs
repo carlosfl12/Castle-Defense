@@ -13,6 +13,7 @@ public class Arrow : MonoBehaviour
     public static ArrowType arrowType;
     public int arrowDamage = 3;
     public bool fireArrow = false;
+    public float launchForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +43,14 @@ public class Arrow : MonoBehaviour
         }
         // Arreglar el daño
         if (other.gameObject.CompareTag("Enemy")) {
-            if (other.GetComponent<Enemy>().oiled && fireArrow) {
-                other.GetComponent<Enemy>().RecieveDamage(45);
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy.oiled && fireArrow) {
+                enemy.RecieveDamage(45);
             } else {
-                if ((arrowDamage * (int)player.launchForce) / 10 < 1) {
-                    other.gameObject.GetComponent<Enemy>().RecieveDamage(1);
+                if ((arrowDamage + (int)launchForce / 10) < 1) {
+                    enemy.RecieveDamage(1);
                 } else {
-                    other.gameObject.GetComponent<Enemy>().RecieveDamage((arrowDamage * (int)player.launchForce) / 10);
+                    enemy.RecieveDamage(arrowDamage + (int)launchForce / 10);
                 }
             }
             Destroy(gameObject);

@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject arrowPrefab;
     public GameObject bow;
-    public float chargeForce;
     public Transform shotPoint;
     public float launchForce;
     public int arrowAmount = 30;
@@ -33,7 +32,9 @@ public class Player : MonoBehaviour
         Vector2 direction = mousePos - bowPosition;
         bow.transform.right = -direction;
         
-
+        if (launchForce < 1.5f) {
+            return;
+        }
         if (Input.GetMouseButton(0)) {
             launchForce += Time.deltaTime * 30f;
         }
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
         }
         GameObject arrow = Instantiate(arrowPrefab, shotPoint.position, shotPoint.rotation);
         arrow.GetComponent<Rigidbody2D>().velocity = -bow.transform.right * force;
+        arrow.GetComponent<Arrow>().launchForce = launchForce;
+
         arrowAmount--;
         launchForce = 0;
 

@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void RecieveDamage(int amount) {
+        Debug.Log(amount);
         if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {
             particle.Play();
         }
