@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         Shooting
     }
     public State state;
+    public Healthbar forceBar;
     
     
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         startPos = transform.position;
+        forceBar.SetForce(launchForce, maxLaunchForce);
     }
 
     // Update is called once per frame
@@ -72,12 +74,15 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0)) {
             launchForce += Time.deltaTime * 30f;
             state = State.Shooting;
+            forceBar.SetForce(launchForce - 1, maxLaunchForce);
         }
         if (launchForce > maxLaunchForce) {
             launchForce = maxLaunchForce;
         }
         if (launchForce >= 0 && Input.GetMouseButtonUp(0) && !GameManager.sharedInstance.isCanvasActive) {
             Shoot(launchForce);
+            forceBar.SetForce(launchForce, maxLaunchForce);
+
         }
 
         if (Input.GetKeyDown(KeyCode.R)) {

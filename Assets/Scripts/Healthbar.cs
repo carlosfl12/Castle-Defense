@@ -29,4 +29,11 @@ public class Healthbar : MonoBehaviour
         slider.maxValue = maxHealth;
         slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowHealth, highHealth, slider.normalizedValue);
     }
+
+    public void SetForce(float force, float maxForce) {
+        slider.gameObject.SetActive(force < maxForce);
+        slider.value = force;
+        slider.maxValue = maxForce;
+        slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowHealth, highHealth, slider.normalizedValue);
+    }
 }

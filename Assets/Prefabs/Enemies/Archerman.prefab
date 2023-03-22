@@ -534,8 +534,9 @@ MonoBehaviour:
   launchForce: 1500
   health: 10
   maxHealth: 10
-  goldToGive: 2
+  goldToGive: 4
   speed: 3
+  oiled: 0
   arrowPrefab: {fileID: 450096846012491059, guid: a628cdaba03ac3e4baa624b3ae25dfa1, type: 3}
   waypoints: []
   waypoint: {fileID: 0}
