@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Vector3 input;
     public float speed = 5f;
     public Vector2 startPos;
     public Rigidbody2D rb;
     public GameObject arrowPrefab;
     public GameObject bow;
+    public Transform[] bowPositions;
     public Transform shotPoint;
     public float launchForce;
+    public float maxLaunchForce = 75f;
     public int arrowAmount = 30;
     public Vector2 mousePos;
+    public Vector2 input;
+
+    public SpriteRenderer pelayo;
+    public Sprite[] sprites;
+    public enum State {
+        Moving,
+        Shooting
+    }
+    public State state;
     
     
     // Start is called before the first frame update
@@ -26,17 +36,45 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        switch (state) {
+            case State.Moving:
+                if (input.x < 0) {
+                    pelayo.flipX = false;
+                    bow.transform.position = bowPositions[0].position;
+                    ChangeSprite(sprites[0]);
+                } else {
+                    bow.transform.position = bowPositions[1].position;
+                    pelayo.flipX = true;
+                    ChangeSprite(sprites[0]);
+                }
+                if (input.y < 0 && input.x == 0) {
+                    bow.transform.position = bowPositions[2].position;
+                    ChangeSprite(sprites[2]);
+                } else if (input.y > 0 && input.x == 0){
+                    bow.transform.position = bowPositions[3].position;
+                    ChangeSprite(sprites[3]);
+                }
+                break;
+            case State.Shooting:
+                pelayo.flipX = false;
+                bow.transform.position = bowPositions[0].position;
+                ChangeSprite(sprites[1]);
+                break;
+        }
         ChangeArrows();
         Vector2 bowPosition = bow.transform.position;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePos - bowPosition;
         bow.transform.right = -direction;
         
-        if (launchForce < 1.5f) {
-            return;
-        }
+        
         if (Input.GetMouseButton(0)) {
             launchForce += Time.deltaTime * 30f;
+            state = State.Shooting;
+        }
+        if (launchForce > maxLaunchForce) {
+            launchForce = maxLaunchForce;
         }
         if (launchForce >= 0 && Input.GetMouseButtonUp(0) && !GameManager.sharedInstance.isCanvasActive) {
             Shoot(launchForce);
@@ -47,7 +85,10 @@ public class Player : MonoBehaviour
             arrowAmount += 1000;
             GameManager.sharedInstance.gold += 1000;
         }
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0));
+        if (input != Vector2.zero) {
+            state = State.Moving;
+        }
+        transform.Translate(input * speed * Time.deltaTime);
     }
     
     void Shoot(float force) {
@@ -79,6 +120,10 @@ public class Player : MonoBehaviour
         if (Input.mouseScrollDelta.y < 0) {
             Arrow.arrowType = Arrow.ArrowType.Normal;
         }
+    }
+
+    void ChangeSprite(Sprite spriteTo) {
+        pelayo.sprite = spriteTo;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
