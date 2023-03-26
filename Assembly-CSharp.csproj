@@ -38,10 +38,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GoldPot.cs" />
      <Compile Include="Assets\Scripts\TrapsManager.cs" />
+     <Compile Include="Assets\Scripts\Scene Scripts\VolumeHandler.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Arrow.cs" />
      <Compile Include="Assets\Scripts\Castle.cs" />
      <Compile Include="Assets\Scripts\Trap.cs" />
+     <Compile Include="Assets\Scripts\Scene Scripts\SceneHandler.cs" />
      <Compile Include="Assets\Scripts\Archer.cs" />
      <Compile Include="Assets\Scripts\Quiver.cs" />
      <Compile Include="Assets\Scripts\EnemyGenerator.cs" />
@@ -49,12 +51,13 @@
      <Compile Include="Assets\Scripts\ShotData.cs" />
      <Compile Include="Assets\Scripts\Oil.cs" />
      <Compile Include="Assets\Scripts\CanvasManager.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Healthbar.cs" />
-     <Compile Include="Assets\Scripts\Scene Scripts\SceneHandler.cs" />
-     <Compile Include="Assets\Scripts\Scene Scripts\VolumeHandler.cs" />
-     <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Scene Scripts\EnemyTutorial.cs" />
+     <Compile Include="Assets\Scripts\Scene Scripts\PelayoTutorial.cs" />
+     <Compile Include="Assets\Scripts\Scene Scripts\BuyTutorial.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

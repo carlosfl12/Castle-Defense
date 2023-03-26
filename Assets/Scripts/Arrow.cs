@@ -6,6 +6,8 @@ public class Arrow : MonoBehaviour
 {
     Vector2 mousePosition;
     Player player;
+    public AudioManager audioManager;
+    public AudioSource audioClip;
     public enum ArrowType {
         Normal,
         Fire
@@ -15,10 +17,15 @@ public class Arrow : MonoBehaviour
     public bool fireArrow = false;
     public float launchForce;
     // Start is called before the first frame update
+    void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         Destroy(gameObject, 3f);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        audioClip.volume = audioManager.soundsVolume;
+        
     }
 
     // Update is called once per frame
@@ -47,6 +54,9 @@ public class Arrow : MonoBehaviour
             if (enemy.oiled && fireArrow) {
                 enemy.RecieveDamage(45);
             } else {
+                if (enemy.audioClip) {
+                    enemy.audioClip.Play();
+                }
                 if ((arrowDamage + (int)launchForce / 10) < 1) {
                     enemy.RecieveDamage(1);
                 } else {
@@ -56,7 +66,5 @@ public class Arrow : MonoBehaviour
             Destroy(gameObject);
             GameManager.sharedInstance.SaveShot(mousePosition, other.gameObject.transform.position);
         }
-        
-
     }
 }

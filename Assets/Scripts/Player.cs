@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         bow.transform.right = -direction;
         
         
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0) && arrowAmount > 0) {
             launchForce += Time.deltaTime * 30f;
             state = State.Shooting;
             forceBar.SetForce(launchForce - 1, maxLaunchForce);

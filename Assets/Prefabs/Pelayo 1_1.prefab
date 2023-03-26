@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 5946684642138790423}
   - component: {fileID: 5946684642138790429}
   - component: {fileID: 5946684642138790428}
+  - component: {fileID: 1796031867063613688}
   m_Layer: 0
   m_Name: Pelayo 1_1
   m_TagString: Player
@@ -546,6 +547,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1796031867063613688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946684642138790422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99429f479b5fd0f47abf60771951cf22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCompletedStep: 0
+  goingToNextStep: 0
 --- !u!1 &5946684642156222158
 GameObject:
   m_ObjectHideFlags: 0

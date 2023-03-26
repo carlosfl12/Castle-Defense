@@ -20,8 +20,15 @@ public class Enemy : MonoBehaviour
     private EnemyGenerator enemyGenerator;
     public SpriteRenderer sprite;
     public ParticleSystem particle;
+    public AudioManager audioManager;
+    public AudioSource audioClip;
+    public bool isTutorial;
 
     private void Awake() {
+        if (isTutorial) {
+            return;
+        }
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         if (particle == null) {
             return;
         } else {
@@ -31,6 +38,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         sprite = GetComponent<SpriteRenderer>();
         enemyGenerator = GameObject.FindGameObjectWithTag("EnemyGenerator").GetComponent<EnemyGenerator>();
         health = maxHealth;
@@ -42,11 +50,21 @@ public class Enemy : MonoBehaviour
             }
         }
         castle = GameObject.FindGameObjectWithTag("Castle").GetComponent<Castle>();
+        if (isTutorial) {
+            return;
+        }
+        if (audioClip) {
+            audioClip.volume = audioManager.soundsVolume;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isTutorial) {
+            return;
+        }
         timeToShot += Time.deltaTime;
         float distance = Vector3.Distance(transform.position, waypoint.position);
         
@@ -80,7 +98,6 @@ public class Enemy : MonoBehaviour
     }
 
     public void RecieveDamage(int amount) {
-        Debug.Log(amount);
         if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {
             particle.Play();
         }
