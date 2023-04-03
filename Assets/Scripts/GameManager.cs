@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemiesList = new List<GameObject>();
     public List<GameObject> archers = new List<GameObject>();
     public bool isCanvasActive;
+    public int enemiesDefeated;
 
     private void Awake() {
         if (sharedInstance == null) {
@@ -30,6 +32,9 @@ public class GameManager : MonoBehaviour
     private void Update() {
         goldText.text = gold.ToString();
         arrowsText.text = arrows.ToString();
+        if (enemiesDefeated >= 50) {
+            SceneManager.LoadScene(2);
+        }
     }
 
     public void BuyArrows() {

@@ -8,6 +8,9 @@ public class Oil : MonoBehaviour
         StartCoroutine(ChangeToKinematic());
     }
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Arrow")) {
+            return;
+        }
         if (other.gameObject.CompareTag("Enemy") && other.gameObject.name.StartsWith("B")) {
             other.GetComponent<Enemy>().oiled = true;
         } else {

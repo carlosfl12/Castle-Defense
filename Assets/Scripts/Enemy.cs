@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
         if (isTutorial) {
             return;
         }
+        
         timeToShot += Time.deltaTime;
         float distance = Vector3.Distance(transform.position, waypoint.position);
         
@@ -97,6 +98,9 @@ public class Enemy : MonoBehaviour
         arrow.GetComponent<Rigidbody2D>().AddForce(direction * launchForce);
     }
 
+    void Retreat() {
+
+    }
     public void RecieveDamage(int amount) {
         if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {
             particle.Play();
@@ -104,6 +108,7 @@ public class Enemy : MonoBehaviour
         health -= amount;
         healthbar.SetHealth(health, maxHealth);
         if (health <= 0) {
+            GameManager.sharedInstance.enemiesDefeated++;
             GameManager.sharedInstance.gold += goldToGive;
             GameManager.sharedInstance.RemoveEnemy(gameObject);
             if (gameObject.name.StartsWith("B")) {

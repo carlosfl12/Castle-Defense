@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
 
     void Reload() {
         if (GameManager.sharedInstance.arrows <= 0) {
-            Debug.Log("Can't Reload");
         } else {
             arrowAmount += 10;
             GameManager.sharedInstance.arrows -= 10;
