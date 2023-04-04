@@ -107,6 +107,9 @@ public class Enemy : MonoBehaviour
         }
         health -= amount;
         healthbar.SetHealth(health, maxHealth);
+        if (audioClip) {
+            audioClip.Play();
+        }
         if (health <= 0) {
             GameManager.sharedInstance.enemiesDefeated++;
             GameManager.sharedInstance.gold += goldToGive;

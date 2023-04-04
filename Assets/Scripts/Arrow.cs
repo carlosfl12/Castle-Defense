@@ -54,9 +54,7 @@ public class Arrow : MonoBehaviour
             if (enemy.oiled && fireArrow) {
                 enemy.RecieveDamage(45);
             } else {
-                if (enemy.audioClip) {
-                    enemy.audioClip.Play();
-                }
+                
                 if ((arrowDamage + (int)launchForce / 10) < 1) {
                     enemy.RecieveDamage(1);
                 } else {
