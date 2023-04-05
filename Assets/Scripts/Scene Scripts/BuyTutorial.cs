@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class BuyTutorial : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BuyTutorial : MonoBehaviour
     public Player player;
     public TMP_Text secondText;
     public TMP_Text thirdText;
+    public TMP_Text buttonText;
+    public Button button;
     public bool hasCompletedStep;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +29,16 @@ public class BuyTutorial : MonoBehaviour
             hasCompletedStep = true;
             secondText.enabled = false;
             thirdText.enabled = true;
+            button.image.enabled = true;
+            buttonText.enabled = true;
+
         }
+        
+    }
+
+    public void ChangeToMainGame() {
         if (pelayo.hasCompletedStep && hasCompletedStep) {
-            Debug.Log("Carga la partida");
+            SceneManager.LoadScene(1);
         }
     }
 }

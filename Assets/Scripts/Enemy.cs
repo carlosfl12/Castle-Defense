@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public AudioManager audioManager;
     public AudioSource audioClip;
     public bool isTutorial;
+    public bool isRetreating;
 
     private void Awake() {
         if (isTutorial) {
@@ -68,15 +69,23 @@ public class Enemy : MonoBehaviour
         
         timeToShot += Time.deltaTime;
         float distance = Vector3.Distance(transform.position, waypoint.position);
+
+        if (GameManager.sharedInstance.enemiesDefeated >= 50) {
+            isRetreating = true;
+            // GameManager.sharedInstance.LoadWinScene();
+        }
         
-        if (distance > 0.5f) {
+        if (distance > 0.5f && !isRetreating) {
             transform.position += transform.right * speed * Time.deltaTime;
-        } else {
+        } else if (distance < 0.5f && !isRetreating){
             gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             if (timeToShot > 2) {
                 timeToShot = 0;
                 Attack();
             }
+        }
+        if (isRetreating) {
+            Retreat();
         }
     }
 
@@ -99,7 +108,8 @@ public class Enemy : MonoBehaviour
     }
 
     void Retreat() {
-
+        transform.position -= transform.right * speed * Time.deltaTime;
+        sprite.flipX = true;
     }
     public void RecieveDamage(int amount) {
         if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {

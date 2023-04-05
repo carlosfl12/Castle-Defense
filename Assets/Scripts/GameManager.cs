@@ -32,9 +32,7 @@ public class GameManager : MonoBehaviour
     private void Update() {
         goldText.text = gold.ToString();
         arrowsText.text = arrows.ToString();
-        if (enemiesDefeated >= 50) {
-            SceneManager.LoadScene(2);
-        }
+        
     }
 
     public void BuyArrows() {
@@ -55,5 +53,8 @@ public class GameManager : MonoBehaviour
     }
     public void RemoveArcher(GameObject archer) {
         enemiesList.Remove(archer);
+    }
+    public void LoadWinScene() {
+        SceneManager.LoadScene(2);
     }
 }
