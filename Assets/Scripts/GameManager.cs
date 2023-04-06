@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> archers = new List<GameObject>();
     public bool isCanvasActive;
     public int enemiesDefeated;
+    public bool win;
+    public bool defeat;
 
     private void Awake() {
         if (sharedInstance == null) {
@@ -54,7 +56,13 @@ public class GameManager : MonoBehaviour
     public void RemoveArcher(GameObject archer) {
         enemiesList.Remove(archer);
     }
-    public void LoadWinScene() {
-        SceneManager.LoadScene(2);
+    public void LoadScene(int indexScene) {
+        StartCoroutine(WaitForLoadScene(indexScene));
+    }
+
+    IEnumerator WaitForLoadScene(int indexScene) {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(indexScene);
+
     }
 }

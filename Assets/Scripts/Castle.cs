@@ -9,7 +9,7 @@ public class Castle : MonoBehaviour
     public Sprite[] castleSprites;
     public SpriteRenderer currentSprite;
     public int health;
-    public int maxHealth = 999;
+    public int maxHealth = 1000;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,19 +26,7 @@ public class Castle : MonoBehaviour
 
     public void RecieveDamage(int amount) {
         health -= amount;
-        healthbar.SetHealth(health, maxHealth);
-        if (health <= 750 && health > 500) {
-            currentSprite.sprite = castleSprites[1];
-        }
-        else if (health <= 500 && health > 250) {
-            currentSprite.sprite = castleSprites[2];
-        }
-        else if (health <= 250 && health > 0) {
-            currentSprite.sprite = castleSprites[3];
-        }
-        else if (health <= 0) {
-            currentSprite.sprite = castleSprites[4];
-        }
+        HealthSprite();
     }
 
     public void RepairCastle(int amount) {
@@ -57,7 +45,11 @@ public class Castle : MonoBehaviour
         if (health > 750) {
             currentSprite.sprite = castleSprites[0];
         }
+        HealthSprite();
 
+    }
+
+    public void HealthSprite() {
         if (health <= 750 && health > 500) {
             currentSprite.sprite = castleSprites[1];
         }
@@ -70,10 +62,6 @@ public class Castle : MonoBehaviour
         else if (health <= 0) {
             currentSprite.sprite = castleSprites[4];
         }
-
         healthbar.SetHealth(health, maxHealth);
-
     }
-
-
 }

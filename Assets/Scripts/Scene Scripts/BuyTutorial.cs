@@ -38,7 +38,7 @@ public class BuyTutorial : MonoBehaviour
 
     public void ChangeToMainGame() {
         if (pelayo.hasCompletedStep && hasCompletedStep) {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }

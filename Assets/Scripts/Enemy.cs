@@ -72,7 +72,9 @@ public class Enemy : MonoBehaviour
 
         if (GameManager.sharedInstance.enemiesDefeated >= 50) {
             isRetreating = true;
-            // GameManager.sharedInstance.LoadWinScene();
+            GameManager.sharedInstance.win = true;
+            //Hacerlo más optimo
+            GameManager.sharedInstance.LoadScene(2);
         }
         
         if (distance > 0.5f && !isRetreating) {

@@ -22,12 +22,16 @@ public class EnemyGenerator : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        if (GameManager.sharedInstance.win) {
+            timer = 0;
+        }
 
         if (timer >= spawnRate) {
             timer = 0;
             SpawnEnemy();
         }
         ChangePosition();
+
     }
 
     void SpawnEnemy() {
