@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance;
@@ -16,8 +17,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> archers = new List<GameObject>();
     public bool isCanvasActive;
     public int enemiesDefeated;
+    public Slider enemiesSlider;
     public bool win;
     public bool defeat;
+    public Color lowColor;
+    public Color highColor;
 
     private void Awake() {
         if (sharedInstance == null) {
@@ -44,6 +48,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void MoveSlider() {
+        enemiesSlider.value = enemiesDefeated;
+        enemiesSlider.maxValue = 50;
+        enemiesSlider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowColor, highColor, enemiesSlider.normalizedValue);
+        
+    }
     public void AddEnemy(GameObject enemy) {
         enemiesList.Add(enemy);
     }

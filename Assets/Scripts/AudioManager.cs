@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public int index;
     public AudioSource audioSource;
     public AudioClip[] audioClips;
-
+    public bool canChangeIndex = true;
     private void Awake() {
         PlayMusic();
     }
@@ -29,15 +29,29 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void PlayHorn() {
+        audioSource.clip = audioClips[2];
+        audioSource.Play();
+    }
     private void Update() {
         audioSource.volume = masterVolume;
         if (!audioSource.isPlaying) {
-            index++;
+            if (canChangeIndex) {
+                StartCoroutine(WaitForIndexChange());
+            }
             if (index >= audioClips.Length) {
                 index = 0;
             }
             audioSource.clip = audioClips[index];
         }
+    }
+
+    IEnumerator WaitForIndexChange() {
+        canChangeIndex = false;
+        yield return new WaitForSeconds(5);
+        index++;
+        canChangeIndex = true;
+        audioSource.Play();
     }
     
 }

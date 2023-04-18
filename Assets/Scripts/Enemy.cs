@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     public AudioSource audioClip;
     public bool isTutorial;
     public bool isRetreating;
+    public bool isDead;
+    public AudioClip deathSound;
 
     private void Awake() {
         if (isTutorial) {
@@ -63,7 +65,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTutorial) {
+        if (isTutorial || isDead) {
             return;
         }
         
@@ -114,6 +116,9 @@ public class Enemy : MonoBehaviour
         sprite.flipX = true;
     }
     public void RecieveDamage(int amount) {
+        if (isDead) {
+            return;
+        }
         if (gameObject.name.StartsWith("B") && health <= (maxHealth * 0.5)) {
             particle.Play();
         }
@@ -123,13 +128,31 @@ public class Enemy : MonoBehaviour
             audioClip.Play();
         }
         if (health <= 0) {
+            isDead = true;
             GameManager.sharedInstance.enemiesDefeated++;
+            GameManager.sharedInstance.MoveSlider();
             GameManager.sharedInstance.gold += goldToGive;
             GameManager.sharedInstance.RemoveEnemy(gameObject);
             if (gameObject.name.StartsWith("B")) {
                 enemyGenerator.hasRam = false;
             }
-            Destroy(gameObject);
+            Invoke("CallCoroutine", 0.1f);
         }
     }
+
+    void CallCoroutine() {
+        StartCoroutine(Death());
+    }
+
+    IEnumerator Death() {
+        //reproducir sonido de muerte
+        if (!gameObject.name.StartsWith("B")) {
+            transform.Rotate(new Vector3(0,0,-90), Space.World);
+            audioClip.clip = deathSound;
+            audioClip.Play();
+        }
+        //animacion de que se tire al suelo y se gire
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    } 
 }

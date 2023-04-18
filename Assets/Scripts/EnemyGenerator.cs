@@ -11,11 +11,14 @@ public class EnemyGenerator : MonoBehaviour
     public bool canMove = false;
     public bool canSpawn = false;
     public float timer = 0;
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         waypoints = GameObject.FindGameObjectsWithTag("EG Waypoints");
-
+        //Cuando cargue la escena que se ponga el sonido de la corneta
+        audioManager.PlayHorn();
     }
 
     // Update is called once per frame

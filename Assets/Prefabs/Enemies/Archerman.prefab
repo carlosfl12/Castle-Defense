@@ -547,6 +547,10 @@ MonoBehaviour:
   particle: {fileID: 0}
   audioManager: {fileID: 0}
   audioClip: {fileID: -4915495513125338690}
+  isTutorial: 0
+  isRetreating: 0
+  isDead: 0
+  deathSound: {fileID: 8300000, guid: b0e36617eda5db04cab9d05fe3fc927e, type: 3}
 --- !u!61 &5514820095003188690
 BoxCollider2D:
   m_ObjectHideFlags: 0
