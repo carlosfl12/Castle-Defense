@@ -418,6 +418,82 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8309741761873796348, guid: ee96c10e0b2c76b4ebb9e3272c742c89, type: 3}
   m_PrefabInstance: {fileID: 1125513578}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &102115514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102115517}
+  - component: {fileID: 102115516}
+  - component: {fileID: 102115515}
+  m_Layer: 5
+  m_Name: PanelFlechas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &102115515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102115514}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &102115516
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102115514}
+  m_CullTransparentMesh: 1
+--- !u!224 &102115517
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102115514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1976343776}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.12, y: 3.1931}
+  m_SizeDelta: {x: -32, y: -8.882099}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &124839075
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +578,158 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &156666474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 156666475}
+  - component: {fileID: 156666477}
+  - component: {fileID: 156666476}
+  m_Layer: 5
+  m_Name: PanelIntro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &156666475
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156666474}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1976343776}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.12, y: 10.607}
+  m_SizeDelta: {x: -32, y: -23.7099}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &156666476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156666474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9098039}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &156666477
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156666474}
+  m_CullTransparentMesh: 1
+--- !u!1 &184408346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184408347}
+  - component: {fileID: 184408349}
+  - component: {fileID: 184408348}
+  m_Layer: 5
+  m_Name: PanelAventura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &184408347
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184408346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1976343776}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -2.88, y: 8.5382}
+  m_SizeDelta: {x: -32, y: -19.5722}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &184408348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184408346}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &184408349
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184408346}
+  m_CullTransparentMesh: 1
 --- !u!1 &208420138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,8 +2085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.12, y: 11.05}
-  m_SizeDelta: {x: 20, y: 7.4041}
+  m_AnchoredPosition: {x: 2.12, y: 3.1931}
+  m_SizeDelta: {x: 20, y: 23.1179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448867363
 MonoBehaviour:
@@ -1880,10 +2108,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Has conseguido defenderte de esta avanzadilla sarracena, tendr\xE1s que
-    reponer tu munici\xF3n de flechas antes de que vuelvan a iniciar otro ataque.\n\nPulsa
+  m_text: "Has conseguido defenderte de esta avanzadilla Omeya, tendr\xE1s que reponer
+    tu munici\xF3n de flechas antes de que vuelvan a iniciar otro ataque.\n\nPulsa
     Tabulador para entrar en el men\xFA de compras.\nA continuaci\xF3n, selecciona
-    mercado para poder comprar flechas.\nPuedes encontrar otro tipo de ayudas en
+    mercado para poder comprar flechas.\n\nPara finalizar, ve hacia el carcaj y podr\xE1s
+    utilizar las flechas que has comprado\nPuedes encontrar otro tipo de ayudas en
     el mercado para mantener tu castillo en buenas condiciones.\n\nUna vez compradas
     las flechas, podr\xE1s avanzar a la siguiente parte del tutorial."
   m_isRightToLeft: 0
@@ -1918,7 +2147,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3190,6 +3419,7 @@ MonoBehaviour:
   canMove: 0
   canSpawn: 0
   timer: 0
+  audioManager: {fileID: 0}
 --- !u!1 &1072806267
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,6 +4020,7 @@ MonoBehaviour:
   - {fileID: 1244221843}
   - {fileID: 1401076259}
   pelayoTutorial: {fileID: 0}
+  panelTutorial: {fileID: 156666474}
   firstText: {fileID: 2011419816}
 --- !u!1 &1233158352
 GameObject:
@@ -5099,6 +5330,8 @@ MonoBehaviour:
   thirdText: {fileID: 1533551828}
   buttonText: {fileID: 1947069569}
   button: {fileID: 2004951459}
+  panelBuyTutorial: {fileID: 102115514}
+  lastPanelTutorial: {fileID: 184408346}
   hasCompletedStep: 0
 --- !u!1 &1533551826
 GameObject:
@@ -5136,8 +5369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.12, y: 11.05}
-  m_SizeDelta: {x: 20, y: 7.4041}
+  m_AnchoredPosition: {x: -2.88, y: 8.5382}
+  m_SizeDelta: {x: 20, y: 12.4278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533551828
 MonoBehaviour:
@@ -5189,13 +5422,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 1.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -6855,8 +7088,12 @@ MonoBehaviour:
   - {fileID: 1915679634}
   isCanvasActive: 0
   enemiesDefeated: 0
+  enemiesSlider: {fileID: 0}
   win: 0
   defeat: 0
+  lowColor: {r: 0, g: 0, b: 0, a: 0}
+  highColor: {r: 0, g: 0, b: 0, a: 0}
+  isTutorial: 1
 --- !u!4 &1958685614
 Transform:
   m_ObjectHideFlags: 0
@@ -7049,8 +7286,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 156666475}
   - {fileID: 2011419815}
+  - {fileID: 102115517}
   - {fileID: 448867362}
+  - {fileID: 184408347}
   - {fileID: 1533551827}
   m_Father: {fileID: 0}
   m_RootOrder: 18
@@ -7243,8 +7483,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 20, y: 10}
+  m_AnchoredPosition: {x: 0, y: -13.147003}
+  m_SizeDelta: {x: 20, y: 3.706}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2004951459
 MonoBehaviour:
@@ -7375,8 +7615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.12, y: 11.05}
-  m_SizeDelta: {x: 20, y: 7.4041}
+  m_AnchoredPosition: {x: 2.12, y: 10.607}
+  m_SizeDelta: {x: 20, y: 8.2901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011419816
 MonoBehaviour:
@@ -7385,7 +7625,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011419814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -7398,10 +7638,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Es el a\xF1o 718 d.C, unas pocas tropas sarracenas se aproximan para terminar
-    la conquista de la pen\xEDnsula ib\xE9rica. Trata de defenderte con las pocas
-    flechas que cargas contigo y haz que las futuras generaciones recuerden esta
-    batalla."
+  m_text: "Es el a\xF1o 718 d.C, unas pocas tropas del ej\xE9rcito Omeya se aproximan
+    para terminar la conquista de la pen\xEDnsula ib\xE9rica. Trata de defenderte
+    con las pocas flechas que cargas contigo y haz que las futuras generaciones recuerden
+    esta batalla."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

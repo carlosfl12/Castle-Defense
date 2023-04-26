@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Archer : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class Archer : MonoBehaviour
     public bool hasArrows;
     public bool hasEnemies;
     public GameObject currentTarget;
+    public GameObject arrowsCanvas;
+    public bool needArrows = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +49,14 @@ public class Archer : MonoBehaviour
         if (arrowAmount <= 0) {
             ReloadPosition();
             hasArrows = false;
+            needArrows = true;
         }
 
         if (hasArrows) {
             InitialPosition();
+            needArrows = false;
         }
+        arrowsCanvas.SetActive(needArrows);
     }
 
     public GameObject GetTarget() {

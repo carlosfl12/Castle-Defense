@@ -5178,6 +5178,11 @@ MonoBehaviour:
   particle: {fileID: 6119961311203093787}
   audioManager: {fileID: 0}
   audioClip: {fileID: 7466538094245487113}
+  isTutorial: 0
+  isRetreating: 0
+  isDead: 0
+  deathSound: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!61 &3708171791763342582
 BoxCollider2D:
   m_ObjectHideFlags: 0

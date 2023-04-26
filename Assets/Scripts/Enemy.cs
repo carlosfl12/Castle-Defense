@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     public bool isRetreating;
     public bool isDead;
     public AudioClip deathSound;
+    public Animator anim;
 
     private void Awake() {
         if (isTutorial) {
@@ -59,6 +60,9 @@ public class Enemy : MonoBehaviour
         if (audioClip) {
             audioClip.volume = audioManager.soundsVolume;
         }
+        if (gameObject.name.StartsWith("S")) {
+            anim = GetComponent<Animator>();
+        }
 
     }
 
@@ -66,13 +70,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (isTutorial || isDead) {
+            // anim.SetBool("IsWalking", false);
+            // anim.SetBool("IsAttacking", false);
             return;
         }
         
         timeToShot += Time.deltaTime;
         float distance = Vector3.Distance(transform.position, waypoint.position);
 
-        if (GameManager.sharedInstance.enemiesDefeated >= 50) {
+        if (GameManager.sharedInstance.enemiesDefeated >= 100) {
             isRetreating = true;
             GameManager.sharedInstance.win = true;
             //Hacerlo más optimo
@@ -80,6 +86,9 @@ public class Enemy : MonoBehaviour
         }
         
         if (distance > 0.5f && !isRetreating) {
+            if (gameObject.name.StartsWith("S")) {
+                anim.SetBool("IsWalking", true);
+            }
             transform.position += transform.right * speed * Time.deltaTime;
         } else if (distance < 0.5f && !isRetreating){
             gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -95,6 +104,10 @@ public class Enemy : MonoBehaviour
 
 
     void Attack() {
+        if (gameObject.name.StartsWith("S")) {
+            anim.SetBool("IsWalking", false);
+            anim.SetBool("IsAttacking", true);
+        }
         if (gameObject.name.StartsWith("A")) {
             Shoot();
         }
@@ -150,6 +163,10 @@ public class Enemy : MonoBehaviour
             transform.Rotate(new Vector3(0,0,-90), Space.World);
             audioClip.clip = deathSound;
             audioClip.Play();
+            if (gameObject.name.StartsWith("S")) {
+                anim.SetBool("IsAttacking", false);
+                anim.SetBool("IsWalking", false);
+            }
         }
         //animacion de que se tire al suelo y se gire
         yield return new WaitForSeconds(3f);

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public bool defeat;
     public Color lowColor;
     public Color highColor;
-
+    public bool isTutorial;
     private void Awake() {
         if (sharedInstance == null) {
             sharedInstance = this;
@@ -49,9 +49,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void MoveSlider() {
-        enemiesSlider.value = enemiesDefeated;
-        enemiesSlider.maxValue = 50;
-        enemiesSlider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowColor, highColor, enemiesSlider.normalizedValue);
+        if (!isTutorial) {
+            enemiesSlider.value = enemiesDefeated;
+            enemiesSlider.maxValue = 100;
+            enemiesSlider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowColor, highColor, enemiesSlider.normalizedValue);
+        }
         
     }
     public void AddEnemy(GameObject enemy) {

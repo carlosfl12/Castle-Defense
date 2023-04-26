@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EnemyTutorial : MonoBehaviour
 {
     public List<GameObject> enemies = new List<GameObject>();
     public PelayoTutorial pelayoTutorial;
+    public GameObject panelTutorial;
     public TMP_Text firstText;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class EnemyTutorial : MonoBehaviour
       if (enemies.Count == 0) {
         pelayoTutorial.hasCompletedStep = true;
         firstText.enabled = false;
+        panelTutorial.GetComponent<Image>().enabled = false;
       }
       foreach (GameObject enemy in enemies) {
         if (enemy == null) {

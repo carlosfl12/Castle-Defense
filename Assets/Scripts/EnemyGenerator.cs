@@ -24,6 +24,13 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.sharedInstance.enemiesDefeated <= 25) {
+            spawnRate = 2.7f;
+        } else if (GameManager.sharedInstance.enemiesDefeated <= 50) {
+            spawnRate = 2.5f;
+        } else if(GameManager.sharedInstance.enemiesDefeated <= 100) {
+            spawnRate = 2f;
+        }
         timer += Time.deltaTime;
         if (GameManager.sharedInstance.win) {
             timer = 0;

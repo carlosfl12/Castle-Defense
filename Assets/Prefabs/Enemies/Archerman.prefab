@@ -551,6 +551,7 @@ MonoBehaviour:
   isRetreating: 0
   isDead: 0
   deathSound: {fileID: 8300000, guid: b0e36617eda5db04cab9d05fe3fc927e, type: 3}
+  anim: {fileID: 0}
 --- !u!61 &5514820095003188690
 BoxCollider2D:
   m_ObjectHideFlags: 0

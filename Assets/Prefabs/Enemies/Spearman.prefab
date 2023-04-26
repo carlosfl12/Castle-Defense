@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: -3367695990667907279}
   - component: {fileID: -4716177924001069315}
   - component: {fileID: 5550414471531958538}
+  - component: {fileID: 2369550818038609431}
   m_Layer: 0
   m_Name: Spearman
   m_TagString: Enemy
@@ -363,6 +364,7 @@ MonoBehaviour:
   isRetreating: 0
   isDead: 0
   deathSound: {fileID: 8300000, guid: b0e36617eda5db04cab9d05fe3fc927e, type: 3}
+  anim: {fileID: 2369550818038609431}
 --- !u!61 &-3367695990667907279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -506,6 +508,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2369550818038609431
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665400707140640894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d21fc57fdc60f1f4ab34ea4b6c8900be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4691510503068432460
 GameObject:
   m_ObjectHideFlags: 0

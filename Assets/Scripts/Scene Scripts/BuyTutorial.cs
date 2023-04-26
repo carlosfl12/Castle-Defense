@@ -13,6 +13,8 @@ public class BuyTutorial : MonoBehaviour
     public TMP_Text thirdText;
     public TMP_Text buttonText;
     public Button button;
+    public GameObject panelBuyTutorial;
+    public GameObject lastPanelTutorial;
     public bool hasCompletedStep;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,8 @@ public class BuyTutorial : MonoBehaviour
     {
         if (player.arrowAmount <= 0) {
             secondText.enabled = true;
+            panelBuyTutorial.GetComponent<Image>().enabled = true;
+
         }
         if (pelayo.goingToNextStep && !hasCompletedStep && player.arrowAmount > 0) {
             hasCompletedStep = true;
@@ -31,6 +35,8 @@ public class BuyTutorial : MonoBehaviour
             thirdText.enabled = true;
             button.image.enabled = true;
             buttonText.enabled = true;
+            panelBuyTutorial.GetComponent<Image>().enabled = false;
+            lastPanelTutorial.GetComponent<Image>().enabled = true;
 
         }
         
