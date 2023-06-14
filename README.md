@@ -6,7 +6,7 @@ The mechanics for defending your castle are as follows: You need to move to the 
 
 With that gold, you can buy more arrows, repair the castle, or even purchase traps to defend the castle.
 
-The project was completed in less than 1 month for a class assignment, and the sprites used were created by Javier Sirerol Braco.
+The project was completed in less than 1 month for a class assignment, and the sprites used were created by: Javier Sirerol Braco.
 
 
 [<img alt="alt_text" width="600px" height="400px" src="Assets/GameImage.png" />](https://www.google.com/)
